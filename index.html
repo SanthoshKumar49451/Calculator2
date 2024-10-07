@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container-header">
+         
+            <div class="header-title">
+                <h2>Calculator</h2>
+
+            </div>
+          <div class="header-input">
+            
+            <p id="prev-input"> </p>
+        
+        <input type="text" id="input">
+    </div>
+
+        </div>
+      
+      
+        <div class="container-body">
+          <div class="numbers">
+            <span id="number7" onclick="get('number7')">7</span>
+            <span id="number8"  onclick="get('number8')">8</span>
+            <span id="number9" onclick="get('number9')">9</span>
+            <span id="multiply" onclick="get('multiply')">*</span>
+          </div>
+          <div class="numbers">
+            <span id="number4" onclick="get('number4')">4</span>
+            <span id="number5" onclick="get('number5')">5</span>
+            <span id="number6" onclick="get('number6')">6</span>
+            <span id="subs" onclick="get('subs')">-</span>
+          </div>
+          <div class="numbers">
+            <span id="number1" onclick="get('number1')">1</span>
+            <span id="number2" onclick="get('number2')">2</span>
+            <span id="number3" onclick="get('number3')">3</span>
+            <span id="add" onclick="get('add')">+</span>
+          </div>
+          <div class="numbers">
+            <span id="divi" onclick="get('divi')">/</span>
+            <span id="zero" onclick="get('zero')">0</span>
+            <span id="dot" onclick="get('dot')">.</span>
+            <span id="equal" onclick="result()">=</span>
+          </div>
+        </div>
+      
+        <div class="clear">
+          <button onclick="ClearAll()">Clear</button>
+        </div>
+      </div>
+      <script >
+        let Calculations=''
+        let inputbox=document.getElementById('input')
+        let prev=document.getElementById('prev-input')
+
+      function get(id){
+        let input=document.getElementById(id)
+      
+    Calculations+=input.innerText;
+    inputbox.value=Calculations
+    } 
+    function result(){
+      if( Calculations==" "){
+        alert("Write Something")
+      }
+      else{
+        let result=eval(Calculations)
+        prev.innerHTML=Calculations
+        inputbox.value=result
+      }
+
+    }
+
+    function ClearAll(){
+    
+      Calculations=" "
+      inputbox.value=" "
+      prev.innerHTML=" "
+      
+
+    }
+
+    </script>
+</body>
+</html>
